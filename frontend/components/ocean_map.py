@@ -48,6 +48,9 @@ from data.mock_data import (
     REGIONS
 )
 
+# Cross-version Plotly compatibility (Plotly 5.x Scattermapbox vs Plotly 6.x Scattermap)
+Scattermapbox = getattr(go, "Scattermapbox", getattr(go, "Scattermap", None))
+
 
 # ============================================================
 # FILES
@@ -820,7 +823,7 @@ def create_streamline_trace(
         if not plot_lons:
             return None
 
-        return go.Scattermapbox(
+        return Scattermapbox(
 
             lon=plot_lons,
 
@@ -859,7 +862,7 @@ def create_colorbar_trace():
     colorbar.
     """
 
-    return go.Scattermapbox(
+    return Scattermapbox(
 
         lat=[0],
 
@@ -1152,7 +1155,7 @@ def create_location_picker_trace(temperature, step=3):
         if len(lat_flat) == 0:
             return None
 
-        return go.Scattermapbox(
+        return Scattermapbox(
             lat=lat_flat,
             lon=lon_flat,
             mode="markers",
@@ -1571,7 +1574,7 @@ def render_ocean_map(
 
         fig.add_trace(
 
-            go.Scattermapbox(
+            Scattermapbox(
 
                 lat=df_floats[
                     "latitude"
@@ -1623,7 +1626,7 @@ def render_ocean_map(
 
             if active_dragmode in ["select", "lasso"]:
                 fig.add_trace(
-                    go.Scattermapbox(
+                    Scattermapbox(
                         lat=s_lats,
                         lon=s_lons,
                         mode="markers",
