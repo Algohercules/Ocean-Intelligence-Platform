@@ -1051,7 +1051,8 @@ def load_temperature_profile(lat, lon, target_date="2024-05-20"):
     Fetch the full-depth temperature column for one user-selected point.
     """
     try:
-        import copernicusmarine
+        import importlib
+        copernicusmarine = importlib.import_module("copernicusmarine")
 
         date = pd.to_datetime(target_date).strftime("%Y-%m-%d")
         half_cell = 0.002
