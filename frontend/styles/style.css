@@ -1,0 +1,550 @@
+/* 
+   Indian Ocean Intelligence Platform - Light Theme CSS
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap');
+
+/* Global App Container */
+.stApp {
+    background-color: #F8FAFC !important;
+    font-family: 'Inter', sans-serif !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+}
+
+/* Remove containing block properties from Streamlit containers so position:fixed is strictly relative to the browser window */
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stAppViewContainer"] > section,
+[data-testid="stAppViewContainer"] .main,
+.main,
+.block-container {
+    transform: none !important;
+    contain: none !important;
+    perspective: none !important;
+}
+
+/* PREVENT TEXT SELECTION CURSOR (I-BEAM) WHEN DRAGGING ON MAPS AND CHARTS */
+div[data-testid="stPlotlyChart"],
+div[data-testid="stPlotlyChart"] *,
+.js-plotly-plot,
+.js-plotly-plot *,
+div[data-testid="stPlotlyChart"] .draglayer,
+.js-plotly-plot .plotly .draglayer,
+div[data-testid="stPlotlyChart"] .nsewdrag {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+}
+
+div[data-testid="stPlotlyChart"] .draglayer,
+.js-plotly-plot .plotly .draglayer,
+div[data-testid="stPlotlyChart"] .nsewdrag {
+    pointer-events: auto !important;
+    cursor: crosshair !important;
+}
+
+/* MAP TOOLBAR PILL BUTTONS (ONLY IN MAIN CONTENT, NOT SIDEBAR) */
+.main div[data-testid="stRadio"] div[role="radiogroup"] {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    align-items: center !important;
+}
+
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label > div:first-child,
+.main div[data-testid="stRadio"] label > div:first-child,
+.main div[data-testid="stRadio"] label svg,
+.main div[data-testid="stRadio"] input[type="radio"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0px !important;
+    height: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label {
+    background: #FFFFFF !important;
+    border: 1.5px solid #64748B !important;
+    border-radius: 6px !important;
+    padding: 4px 10px !important;
+    margin-right: 4px !important;
+    cursor: pointer !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+    white-space: nowrap !important;
+}
+
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label p,
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label span {
+    color: #0F172A !important;
+    font-weight: 700 !important;
+    font-size: 0.84rem !important;
+    opacity: 1 !important;
+    white-space: nowrap !important;
+}
+
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label:hover {
+    border-color: #2563EB !important;
+    background: #F1F5F9 !important;
+}
+
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label[data-checked="true"],
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked) {
+    background: #2563EB !important;
+    border-color: #1D4ED8 !important;
+}
+
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label[data-checked="true"] p,
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label[data-checked="true"] span,
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked) p,
+.main div[data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked) span {
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+}
+
+/* SIDEBAR RADIO BUTTONS RESTORED TO ORIGINAL DESIGN */
+[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stRadio"] label {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: #CBD5E1 !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stRadio"] label > div:first-child,
+[data-testid="stSidebar"] div[data-testid="stRadio"] input[type="radio"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stRadio"] label p {
+    color: #CBD5E1 !important;
+    font-weight: 500 !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stRadio"] label:has(input:checked) p {
+    color: #38BDF8 !important;
+    font-weight: 700 !important;
+}
+
+/* Ensure the full modebar container wrapper is 100% transparent with NO top black bar */
+div[data-testid="stPlotlyChart"] .modebar-container,
+.js-plotly-plot .plotly .modebar-container {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove inner translucent box and center modebar-group items */
+div[data-testid="stPlotlyChart"] .modebar-group,
+.js-plotly-plot .plotly .modebar-group {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+/* Dark Navy Solid Pill Modebar ONLY - Positioned strictly at TOP RIGHT on Hover */
+div[data-testid="stPlotlyChart"] .modebar,
+.js-plotly-plot .plotly .modebar {
+    background: #0B192C !important;
+    background-color: #0B192C !important;
+    border: 1px solid #1E293B !important;
+    border-radius: 6px !important;
+    padding: 4px 8px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35) !important;
+    top: 6px !important;
+    bottom: auto !important;
+    right: 8px !important;
+    width: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.2s ease-in-out !important;
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+}
+
+/* Fade in Dark Pill Modebar ON HOVER ONLY */
+div[data-testid="stPlotlyChart"]:hover .modebar,
+.js-plotly-plot:hover .plotly .modebar {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Crisp White Modebar Icons Perfectly Centered Vertically & Horizontally */
+div[data-testid="stPlotlyChart"] .modebar-btn,
+.js-plotly-plot .plotly .modebar-btn {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 2px 4px !important;
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    pointer-events: auto !important;
+}
+
+div[data-testid="stPlotlyChart"] .modebar-btn svg,
+.js-plotly-plot .plotly .modebar-btn svg {
+    vertical-align: middle !important;
+    margin: auto !important;
+    display: block !important;
+}
+
+div[data-testid="stPlotlyChart"] .modebar-btn path,
+.js-plotly-plot .plotly .modebar-btn path {
+    fill: #FFFFFF !important;
+}
+
+div[data-testid="stPlotlyChart"] .modebar-btn:hover path,
+.js-plotly-plot .plotly .modebar-btn:hover path {
+    fill: #38BDF8 !important;
+}
+
+/* Main Content High Contrast Captions & Text */
+[data-testid="stAppViewContainer"] .main p,
+[data-testid="stAppViewContainer"] .main label,
+[data-testid="stAppViewContainer"] .main [data-testid="stCaptionContainer"] p,
+.main caption {
+    color: #334155 !important;
+    font-weight: 500 !important;
+}
+
+/* Hide Streamlit default sidebar navigation link list completely */
+[data-testid="stSidebarNav"],
+nav[data-testid="stSidebarNav"],
+div[data-testid="stSidebarNav"],
+div[data-testid="stSidebarNavItems"] {
+    display: none !important;
+    height: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+/* Streamlit native header - non-blocking for underlying elements */
+header[data-testid="stHeader"] {
+    background-color: transparent !important;
+    z-index: 999980 !important;
+    height: 72px !important;
+    pointer-events: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* ZERO-OUT VERTICAL SPACE FROM STREAMLIT CONTAINERS FOR HEADER BUTTON AND HEADER BANNER */
+.stApp div[data-testid="stElementContainer"]:has(button[key="header_toggle_sidebar_btn"]),
+.stApp div.stButton:has(button[key="header_toggle_sidebar_btn"]),
+.stApp div.element-container:has(button[key="header_toggle_sidebar_btn"]),
+.stApp div[data-testid="stElementContainer"]:has(.top-header-banner),
+.stApp div.element-container:has(.top-header-banner) {
+    height: 0px !important;
+    min-height: 0px !important;
+    max-height: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    line-height: 0px !important;
+    font-size: 0px !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    overflow: visible !important;
+}
+
+/* PERMANENT HEADER BUTTON - STRICTLY FIXED AT VIEWPORT TOP: 18px, LEFT: 12px INSIDE 72px DARK HEADER BANNER */
+.stApp button[key="header_toggle_sidebar_btn"],
+button[key="header_toggle_sidebar_btn"] {
+    position: fixed !important;
+    top: 18px !important;
+    left: 12px !important;
+    z-index: 1000010 !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    max-width: 36px !important;
+    max-height: 36px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+}
+
+button[key="header_toggle_sidebar_btn"] {
+    background-color: #0B192C !important;
+    color: #FFFFFF !important;
+    border: 1.5px solid #EF4444 !important; /* Crimson Red Accent Border */
+    border-radius: 4px !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    font-size: 19px !important;
+    font-weight: bold !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+    cursor: pointer !important;
+}
+
+button[key="header_toggle_sidebar_btn"]:hover,
+button[key="header_toggle_sidebar_btn"]:focus,
+button[key="header_toggle_sidebar_btn"]:active {
+    background-color: #1E293B !important;
+    border-color: #F87171 !important;
+    color: #FFFFFF !important;
+}
+
+/* Hide default collapse/expand controls to avoid duplicate buttons */
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"] {
+    display: none !important;
+}
+
+/* Native Sidebar Drawer Styling - starts flush right below 72px header */
+[data-testid="stSidebar"],
+section[data-testid="stSidebar"] {
+    background-color: #0B192C !important;
+    color: #FFFFFF !important;
+    border-right: 1px solid #1E293B !important;
+    margin-top: 72px !important;
+    padding-top: 0px !important;
+    height: calc(100vh - 72px) !important;
+    z-index: 99999 !important;
+    min-width: 280px !important;
+    max-width: 290px !important;
+    width: 285px !important;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Zero out padding & margin inside sidebar user content wrapper */
+[data-testid="stSidebarUserContent"],
+section[data-testid="stSidebar"] > div:first-child,
+[data-testid="stSidebarUserContent"] > div:first-child {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    background-color: #0B192C !important;
+}
+
+/* Collapse empty style element containers inside stSidebarUserContent */
+[data-testid="stSidebarUserContent"] div[data-testid="stElementContainer"]:has(style),
+[data-testid="stSidebarUserContent"] div.element-container:has(style) {
+    display: none !important;
+    height: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+[data-testid="stSidebarUserContent"] [data-testid="stElementContainer"]:first-child,
+[data-testid="stSidebarUserContent"] .element-container:first-child {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+}
+
+/* HIGH-CONTRAST SIDEBAR TEXT & LABELS */
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] h3 {
+    color: #FFFFFF !important;
+}
+
+[data-testid="stSidebar"] caption,
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
+    color: #94A3B8 !important;
+}
+
+/* High contrast Radio buttons inside dark sidebar */
+[data-testid="stSidebar"] [data-testid="stRadio"] label,
+[data-testid="stSidebar"] [data-testid="stRadio"] label p,
+[data-testid="stSidebar"] [data-testid="stRadio"] label span,
+[data-testid="stSidebar"] [data-baseweb="radio"] span,
+[data-testid="stSidebar"] div[role="radiogroup"] label {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+    font-size: 0.92rem !important;
+}
+
+/* Selectboxes & Inputs inside dark sidebar */
+[data-testid="stSidebar"] [data-baseweb="select"] > div,
+[data-testid="stSidebar"] [data-baseweb="input"] input,
+[data-testid="stSidebar"] input {
+    background-color: #0F172A !important;
+    color: #FFFFFF !important;
+    border-color: #334155 !important;
+}
+
+/* HIGH-CONTRAST ALERT BANNERS (st.info, st.success, etc.) */
+[data-testid="stAlert"],
+div.stAlert,
+div[data-baseweb="notification"] {
+    background-color: #0F172A !important;
+    color: #FFFFFF !important;
+    border: 1px solid #38BDF8 !important;
+    border-radius: 6px !important;
+}
+
+[data-testid="stAlert"] p,
+div.stAlert p,
+[data-testid="stAlert"] span,
+div.stAlert span {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+}
+
+/* Main Container Responsiveness - Starts directly below 72px header with ZERO GAP */
+[data-testid="stAppViewContainer"] .main .block-container,
+.block-container {
+    margin-top: 72px !important;
+    padding-top: 0px !important;
+    padding-bottom: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Fixed Edge-to-Edge Expanded Top Header Navigation Banner (72px height) */
+.top-header-banner {
+    background-color: #0B192C !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    z-index: 1000000 !important;
+    pointer-events: auto !important;
+    margin: 0 !important;
+    padding: 12px 18px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
+}
+
+/* Top Navigation Links - Fully Interactive & Clickable */
+.top-header-banner a {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    z-index: 1000005 !important;
+    position: relative !important;
+}
+
+.top-header-banner a:hover {
+    color: #38BDF8 !important;
+}
+
+.top-header-title {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.38rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.5px !important;
+}
+
+.top-header-sub {
+    font-size: 0.80rem !important;
+    color: #94A3B8 !important;
+    margin-top: 1px !important;
+    line-height: 1.0 !important;
+    white-space: nowrap !important;
+}
+
+/* Custom Card Container */
+.info-card-box {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+}
+
+.info-card-header {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0F172A;
+    text-transform: uppercase;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+/* Bottom Pastel KPI Cards */
+.kpi-row-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.kpi-card {
+    border-radius: 6px;
+    padding: 8px 4px;
+    text-align: center;
+    border: 1px solid;
+}
+
+.kpi-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #334155;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.kpi-value {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0F172A;
+}
+
+/* Pastel Palette */
+.kpi-1 { background: #FFF7ED; border-color: #FDBA74; }
+.kpi-2 { background: #FEFCE8; border-color: #FDE047; }
+.kpi-3 { background: #F0FDF4; border-color: #86EFAC; }
+.kpi-4 { background: #ECFEFF; border-color: #67E8F9; }
+.kpi-5 { background: #FEF2F2; border-color: #FCA5A5; }
+.kpi-6 { background: #EFF6FF; border-color: #93C5FD; }
+.kpi-7 { background: #F0F3FF; border-color: #A5B4FC; }
+.kpi-8 { background: #FAF5FF; border-color: #D8B4FE; }
