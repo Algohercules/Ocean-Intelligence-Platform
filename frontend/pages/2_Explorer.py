@@ -19,7 +19,7 @@ import os
 import plotly.graph_objects as go
 
 st.set_page_config(
-    page_title="Explorer | Indian Ocean Intelligence Platform",
+    page_title="Explorer | Pirates Of Ocean",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded"

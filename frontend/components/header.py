@@ -43,7 +43,7 @@ def render_header(active_page="Dashboard"):
     st.markdown(
         f"""<div class="top-header-banner">
 <div style="display: flex; flex-direction: column; justify-content: center; flex-shrink: 0; margin-left: 0px;">
-<div class="top-header-title">INDIAN OCEAN INTELLIGENCE PLATFORM</div>
+<div class="top-header-title">PIRATES OF OCEAN</div>
 <div class="top-header-sub">Explore. Analyze. Predict.</div>
 </div>
 <div style="display: flex; gap: 6px; align-items: center; font-size: 0.83rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; margin-left: auto; margin-right: 120px;">

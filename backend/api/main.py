@@ -15,7 +15,7 @@ from backend.api.routes.argo import router as argo_router
 from backend.api.routes.heatwave import router as heatwave_router
 
 app = FastAPI(
-    title="Ocean Intelligence Platform API",
+    title="Pirates Of Ocean API",
     description="Deep Learning Subsurface Temperature Reconstruction & Ocean Analytics API",
     version="1.0.0",
     docs_url="/docs",

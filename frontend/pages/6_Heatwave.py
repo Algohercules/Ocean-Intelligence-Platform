@@ -23,7 +23,7 @@ import numpy as np
 from datetime import datetime, timedelta
 
 st.set_page_config(
-    page_title="Heatwave | Indian Ocean Intelligence Platform",
+    page_title="Heatwave | Pirates Of Ocean",
     page_icon="🔥",
     layout="wide",
     initial_sidebar_state="expanded"

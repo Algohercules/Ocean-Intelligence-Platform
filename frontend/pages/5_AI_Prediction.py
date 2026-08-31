@@ -23,7 +23,7 @@ import numpy as np
 from datetime import datetime, timedelta
 
 st.set_page_config(
-    page_title="AI Prediction | Indian Ocean Intelligence Platform",
+    page_title="AI Prediction | Pirates Of Ocean",
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded"

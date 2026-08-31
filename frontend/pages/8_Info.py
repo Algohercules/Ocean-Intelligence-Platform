@@ -18,7 +18,7 @@ import streamlit as st
 import os
 
 st.set_page_config(
-    page_title="Info | Indian Ocean Intelligence Platform",
+    page_title="Info | Pirates Of Ocean",
     page_icon="ℹ️",
     layout="wide",
     initial_sidebar_state="expanded"

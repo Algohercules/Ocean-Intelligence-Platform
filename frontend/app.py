@@ -18,7 +18,7 @@ for _p in [str(_repo_root), str(_frontend_dir)]:
 import streamlit as st
 
 st.set_page_config(
-    page_title="Indian Ocean Intelligence Platform",
+    page_title="Pirates Of Ocean",
     page_icon="🌊",
     layout="wide",
     initial_sidebar_state="expanded"

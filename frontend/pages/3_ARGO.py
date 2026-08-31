@@ -24,7 +24,7 @@ import numpy as np
 from datetime import datetime, date, timedelta
 
 st.set_page_config(
-    page_title="ARGO Ocean Observatory | Indian Ocean Intelligence Platform",
+    page_title="ARGO Ocean Observatory | Pirates Of Ocean",
     page_icon="📡",
     layout="wide",
     initial_sidebar_state="expanded"
