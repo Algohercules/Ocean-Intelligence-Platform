@@ -218,7 +218,8 @@ def render_location_report_ui(target_lat=15.0, target_lon=65.0, target_depth=75,
             target_lat=target_lat,
             target_lon=target_lon,
             show_floats=True,
-            show_heatmap=True
+            show_heatmap=True,
+            map_key=f"loc_map_{int(target_depth)}_{abs(hash(str(target_lat)+str(target_lon)))%10000}"
         )
 
     with c_loc_ins:

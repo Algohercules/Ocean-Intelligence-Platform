@@ -272,7 +272,8 @@ Comprehensive multi-depth diagnostic analysis of the <b>{b_region}</b> at <b>{b_
             target_lat=15.0,
             target_lon=65.0 if b_region=="Arabian Sea" else 88.0,
             show_floats=True,
-            show_heatmap=True
+            show_heatmap=True,
+            map_key=f"basin_rep_map_{int(b_depth)}_{abs(hash(b_region))%10000}"
         )
 
     with c_prof_b:

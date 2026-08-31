@@ -1419,8 +1419,11 @@ def render_ocean_map(
 
     map_key = map_key or kwargs.get('map_key')
     if not map_key:
+        if "_ocean_map_instance_counter" not in st.session_state:
+            st.session_state["_ocean_map_instance_counter"] = 0
+        st.session_state["_ocean_map_instance_counter"] += 1
         safe_reg = str(region).replace(" ", "_").replace("-", "_")
-        map_key = f"map_{safe_reg}_{depth}_{abs(hash(str(date_str))) % 10000}"
+        map_key = f"map_{safe_reg}_{depth}_{st.session_state['_ocean_map_instance_counter']}"
 
     if f"{map_key}_dragmode" not in st.session_state:
         st.session_state[f"{map_key}_dragmode"] = "pan"
