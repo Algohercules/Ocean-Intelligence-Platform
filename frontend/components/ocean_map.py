@@ -56,15 +56,26 @@ Scattermapbox = getattr(go, "Scattermapbox", getattr(go, "Scattermap", None))
 # FILES
 # ============================================================
 
-TEMPERATURE_FILE = Path(
-    "data/copernicus/"
+def _locate_data_file(filename: str) -> Path:
+    """Finds Copernicus NetCDF dataset across candidate directories."""
+    candidates = [
+        Path("data/raw") / filename,
+        Path("data/copernicus") / filename,
+        Path("data") / filename,
+        Path(__file__).resolve().parent.parent.parent / "data" / "raw" / filename,
+    ]
+    for p in candidates:
+        if p.exists():
+            return p
+    return candidates[0]
+
+TEMPERATURE_FILE = _locate_data_file(
     "cmems_mod_glo_phy-thetao_anfc_0.083deg_P1D-m_"
     "thetao_30.00E-120.00E_40.00S-30.00N_"
     "65.81-77.85m_2024-05-20.nc"
 )
 
-CURRENT_FILE = Path(
-    "data/copernicus/"
+CURRENT_FILE = _locate_data_file(
     "cmems_mod_glo_phy-cur_anfc_0.083deg_P1D-m_"
     "uo-vo_30.00E-120.00E_40.00S-30.00N_"
     "65.81-77.85m_2024-05-20.nc"
