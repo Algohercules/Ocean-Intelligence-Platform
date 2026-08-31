@@ -42,14 +42,9 @@ def render_header(active_page="Dashboard"):
     # Top Header Banner HTML with Clean Streamlit Multipage Routes
     st.markdown(
         f"""<div class="top-header-banner">
-<div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: 0px;">
-<div style="background: #2563EB; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">
-🌊
-</div>
-<div>
+<div style="display: flex; flex-direction: column; justify-content: center; flex-shrink: 0; margin-left: 0px;">
 <div class="top-header-title">INDIAN OCEAN INTELLIGENCE PLATFORM</div>
 <div class="top-header-sub">Explore. Analyze. Predict.</div>
-</div>
 </div>
 <div style="display: flex; gap: 6px; align-items: center; font-size: 0.83rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; margin-left: auto; margin-right: 120px;">
 <a href="/Dashboard" target="_self" style="{nav_style('Dashboard')}">🏢 Dashboard</a>
